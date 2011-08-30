@@ -8,14 +8,14 @@ objectToHtml=function(o){//将对象转换成Element元素,o等转换的内容
   if(typeof o == 'object' && o.length){ //数组
     var elemArr = [];
     for(var i in o){
-      elemArr.push(Util.objectToHtml(o[i]));
+      elemArr.push(objectToHtml(o[i]));
     }
     return elemArr;
   }else if(typeof o == 'object'){//对象
     var p,ch;
     for(var i in o){
-      p = Util.objectToHtml(i);
-      ch = Util.objectToHtml(o[i]);
+      p = objectToHtml(i);
+      ch = objectToHtml(o[i]);
       if(ch.length){ //数组
         for(var i in ch){
           p.appendChild(ch[i]);
@@ -31,7 +31,7 @@ objectToHtml=function(o){//将对象转换成Element元素,o等转换的内容
     if(ts.length > 1){
       te = document.createElement(ts[0]);
       te.className=ts[1];
-    }else if($.inArray(ts[0],kwds)>0){
+    }else if(inArray(ts[0],kwds)>0){
       te = document.createElement(ts[0]);
     }else{
       te = document.createElement('div');
@@ -40,3 +40,12 @@ objectToHtml=function(o){//将对象转换成Element元素,o等转换的内容
     return te;
   }
 }
+inArray = function(elem,array){
+  var index = -1;
+  for(var i in array){
+    if(array[i]==elem){
+       return i    
+    }
+  }
+  return index;
+};

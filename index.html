@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <script language="javascript" type="text/javascript" src="objectToHtml.js"></script>
+    
+    <style type="text/css">
+    .root{background-color:#F00;}
+    </style>
+  </head>
+  <body>
+    <script language="javascript" type="text/javascript">
+      var k = objectToHtml({root:{ul:'li|o'}});
+      document.body.appendChild(k);
+    </script>
+  </body>
+</html>
